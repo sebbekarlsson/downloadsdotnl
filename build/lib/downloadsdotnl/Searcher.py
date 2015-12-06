@@ -33,6 +33,8 @@ class Searcher(object):
         song_urls = doc.xpath(".//a[@class='tl j-lnk']/@href")
         files = []
         
+        print('Query: {}'.format(query, page))
+        
         for url in song_urls:
             full_url = 'http://www.downloads-nl.com/{}&p=1'.format(url)
             
@@ -51,6 +53,8 @@ class Searcher(object):
             except AttributeError:
                 pass
 
+        print('Found: {} songs on page {}'.format(len(files)), page)
+        
         for file in files:
             real_file = '{}/{}'.format(config['download']['dir'], os.path.basename(file))
             print('Saving: {}'.format(real_file))
