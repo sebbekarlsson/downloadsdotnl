@@ -53,7 +53,7 @@ class Searcher(object):
             except AttributeError:
                 pass
 
-        print('Found: {} songs on page {}'.format(len(files)), page)
+        print('Found: {} songs on page {}'.format(len(files), page))
         
         for file in files:
             real_file = '{}/{}'.format(config['download']['dir'], os.path.basename(file))
